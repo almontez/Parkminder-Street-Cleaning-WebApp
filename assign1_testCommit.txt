@@ -1,0 +1,9 @@
+Name:   Angela Montez
+Course: CS 361
+Date:   09/26/2022
+Title:  Test commit
+
+
+This file is useless. It was needed to complete assignment 1, which
+asks student to create a Git repository for the course and make a test commit
+to the repository. Delete this file later. 
