@@ -6,13 +6,7 @@ import Image from 'react-bootstrap/Image'
 
 function HomePage() {
   return (
-    <Container fluid>
-      <Row>
-        <Col>
-          <Image src={HeroImage} fluid="True"></Image>
-        </Col>
-      </Row>
-    </Container>
+    <Image id="banner" src={HeroImage} fluid="True"></Image>
   );
 }
 

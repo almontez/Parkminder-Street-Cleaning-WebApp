@@ -7,7 +7,7 @@ function GetStartedPage() {
   return (
     <Container fluid id='start'>
         <Row>
-            <h1>Get Started</h1>
+            <h5>Get Started</h5>
         </Row>
         <Row>
             <h1>Set A Reminder</h1>

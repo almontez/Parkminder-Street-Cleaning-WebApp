@@ -7,7 +7,7 @@ function AboutPage() {
   return (
     <Container fluid id='about'>
         <Row>
-            <h1>About</h1>
+            <h5>About</h5>
         </Row>
         <Row>
             <h1>Tag Line</h1>

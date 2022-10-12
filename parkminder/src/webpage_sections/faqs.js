@@ -7,7 +7,7 @@ function FAQsPage() {
   return (
     <Container fluid id='faq'>
         <Row>
-            <h1>FAQs</h1>
+            <h5>FAQs</h5>
         </Row>
         <Row>
             <h1>Resources</h1>

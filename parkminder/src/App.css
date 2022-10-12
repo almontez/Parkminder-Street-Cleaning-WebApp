@@ -1,12 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
 
 .App {
   text-align: center;
   font-family: 'Montserrat'
 }
 
+h1 {
+  font-family: 'Shrikhand';
+  color: #ce8232
+}
+#banner {
+  background-size: ;
+}
+
 #about {
   background-color: #f1f0f0;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 #spacer {
@@ -22,8 +35,16 @@
 
 #start {
   background-color: #f1f0f0;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 #faq {
   background-color: #fcf6f0;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
