@@ -6,12 +6,8 @@ import Card from 'react-bootstrap/Card';
 function AboutPage() {
   return (
     <Container fluid id='about'>
-        <Row>
-            <h5>About</h5>
-        </Row>
-        <Row>
-            <h1>Tag Line</h1>
-        </Row>
+        <Row><h5>About</h5></Row>
+        <Row><h1>Tag Line</h1></Row>
         <Row>
             <Col>
                 <Card>

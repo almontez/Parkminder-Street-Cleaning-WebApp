@@ -6,12 +6,8 @@ import Card from 'react-bootstrap/Card';
 function GetStartedPage() {
   return (
     <Container fluid id='start'>
-        <Row>
-            <h5>Get Started</h5>
-        </Row>
-        <Row>
-            <h1>Set A Reminder</h1>
-        </Row>
+        <Row><h5>Get Started</h5></Row>
+        <Row><h1>Set A Reminder</h1></Row>
         <Row>
             <Col>
                 <Card>
