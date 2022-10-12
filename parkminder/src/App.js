@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './webpage_sections/navbar';
 import HomePage from './webpage_sections/home';
 import AboutPage from './webpage_sections/about';
-import Container from 'react-bootstrap/esm/Container';
+import GetStartedPage from './webpage_sections/getstarted';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       <NavigationBar></NavigationBar>
       <HomePage></HomePage>
       <AboutPage></AboutPage>
+      <GetStartedPage></GetStartedPage>
     </div>
   );
 }
