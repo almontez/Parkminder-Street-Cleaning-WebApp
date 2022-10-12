@@ -3,12 +3,23 @@
 
 .App {
   text-align: center;
-  font-family: 'Montserrat'
+  font-family: 'Montserrat';
 }
 
 h1 {
   font-family: 'Shrikhand';
   color: #ce8232
+}
+
+#home {
+  background: url(./images/homepageimg.png);
+  min-height : 100%;
+  min-width : 100%;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: 725px;
 }
 
 #about {
