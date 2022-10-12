@@ -6,6 +6,21 @@
   background-color: #f1f0f0;
 }
 
+#spacer {
+  background-color: #f8c691;
+}
+
+#box {
+  width: auto;
+  height: 100px;
+  background: transparent;
+  border: none;
+}
+
 #start {
   background-color: #f1f0f0;
+}
+
+#faq {
+  background-color: #fcf6f0;
 }
