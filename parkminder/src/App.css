@@ -6,11 +6,22 @@
   font-family: 'Montserrat';
 }
 
-h1 {
-  font-family: 'Shrikhand';
-  color: #ce8232
+.left-align {
+  text-align: left;
 }
 
+h1 {
+  font-family: 'Shrikhand';
+  color: #ce8232;
+  padding-bottom: 50px;
+}
+
+/**
+# Citation for #home css
+# Date: 10/12/2022
+# Adapted from Stack Overflow: "Bootstrap image to fit screen"
+# Source URL: https://stackoverflow.com/questions/1150163/stretch-and-scale-a-css-image-in-the-background-with-css-only
+**/
 #home {
   background: url(./images/homepageimg.png);
   min-height : 100%;
@@ -19,11 +30,11 @@ h1 {
   background-repeat:no-repeat;
   overflow-y: hidden;
   overflow-x: hidden;
-  height: 725px;
+  height: 650px;
 }
 
 #about {
-  background-color: #f1f0f0;
+  background-color: #fcf6f0;
   padding-top: 50px;
   padding-bottom: 100px;
   padding-left: 100px;
@@ -55,4 +66,12 @@ h1 {
   padding-bottom: 100px;
   padding-left: 100px;
   padding-right: 100px;
+}
+
+.faq-accordion {
+  text-align: left;
+}
+
+.faq-qbox {
+  padding-bottom: 500px;
 }

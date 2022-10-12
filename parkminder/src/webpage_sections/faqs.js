@@ -8,7 +8,7 @@ function FAQsPage() {
         <Row><h5>FAQs</h5></Row>
         <Row><h1>Resources</h1></Row>
 
-        <Accordion flush>
+        <Accordion className="faq-accordion"flush>
             <Accordion.Item eventKey="0">
                 <Accordion.Header>FILL ME IN</Accordion.Header>
                 <Accordion.Body>
