@@ -6,7 +6,7 @@ import logo from '../images/logo.png'
 function NavigationBar() {
   return (
     <Navbar bg="light" expand="lg" sticky='top'>
-      <Container>
+      <Container id="nav-bar">
         <Navbar.Brand href="#home">
           <img src={logo} width={125} height={75} alt="logo" 
           />{' '} Parkminder
