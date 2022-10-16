@@ -60,6 +60,11 @@ h1 {
   padding-right: 100px;
 }
 
+.map-container {
+  height: 650px;
+  width: auto;
+}
+
 #faq {
   background-color: #fcf6f0;
   padding-top: 50px;

@@ -3,7 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Webpage Sections
-import NavigationBar from './webpage_sections/navbar';
+import NavigationBar from './components/navbar';
 import HomePage from './webpage_sections/home';
 import AboutPage from './webpage_sections/about';
 import Spacer from './webpage_sections/spacer';

@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Map from '../components/map';
 
 function GetStartedPage() {
   return (
@@ -13,21 +14,11 @@ function GetStartedPage() {
                 <Card>
                 <Card.Body>
                     <Card.Text>
-                    FILL ME IN
+                        <Map></Map>
                     </Card.Text>
                 </Card.Body>
                 </Card>
-                <Card.Header as="h5">Map</Card.Header>
-            </Col>
-            <Col>
-            <Card>
-                <Card.Body>
-                    <Card.Text>
-                    FILL ME IN
-                    </Card.Text>
-                </Card.Body>
-                </Card>
-                <Card.Header as="h5">Form</Card.Header>
+                <Card.Header as="h5" className='get-started-card'>Map</Card.Header>
             </Col>
         </Row>
     </Container>
