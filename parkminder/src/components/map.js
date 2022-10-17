@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxtb250ZXoiLCJhIjoiY2w5OG9sYmNrMDdzZjNwdXB2Ym9tNnlsaSJ9.7qMcqrkDozh6eKMTolbQdg';
 
@@ -16,7 +16,9 @@ function Map() {
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
-      zoom: zoom
+      zoom: zoom,
+      attributionControl: true,
+      logoPosition: 'top-left'
     });
   });
 
@@ -28,11 +30,6 @@ function Map() {
       setZoom(map.current.getZoom().toFixed(2));
     });
   });
-
-  useEffect(()=> {
-    if (!map.current) return;
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
-  })
 
   return (
     <div>

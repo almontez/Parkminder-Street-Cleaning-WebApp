@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Webpage Sections
 import NavigationBar from './components/navbar';
