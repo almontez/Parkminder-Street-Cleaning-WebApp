@@ -16,6 +16,14 @@ h1 {
   padding-bottom: 50px;
 }
 
+#nav-bar {
+  height: 80px;
+}
+
+#nav-bar-links {
+  font-size: large;
+}
+
 /**
 # Citation for #home css
 # Date: 10/12/2022
@@ -23,14 +31,14 @@ h1 {
 # Source URL: https://stackoverflow.com/questions/1150163/stretch-and-scale-a-css-image-in-the-background-with-css-only
 **/
 #home {
-  background: url(./images/homepageimg.png);
+  background: url(./images/homepgimg2.png);
   min-height : 100%;
   min-width : 100%;
   background-size:100% 100%;
   background-repeat:no-repeat;
   overflow-y: hidden;
   overflow-x: hidden;
-  height: 650px;
+  height: 750px;
 }
 
 #about {
