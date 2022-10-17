@@ -1,6 +1,26 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
+{/* 
+  Citation for following code:
+  Date: 10/16/2022
+
+  Title: "Use Mapbox GL JS in React app"
+  Source URL: https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-react/
+
+  Title: "Locate the user"
+  Source URL: https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
+
+  Title: "Display map navigation controls"
+  Source URL: https://docs.mapbox.com/mapbox-gl-js/example/navigation/
+
+  Title: "Add a geocoder"
+  Source URL: https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder
+
+  Title: "Mapbox GL Geocoder"
+  Source URL: https://www.npmjs.com/package/@mapbox/mapbox-gl-geocoder
+*/}
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxtb250ZXoiLCJhIjoiY2w5OG9sYmNrMDdzZjNwdXB2Ym9tNnlsaSJ9.7qMcqrkDozh6eKMTolbQdg';
 
 function Map() {

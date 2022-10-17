@@ -2,6 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Accordion from 'react-bootstrap/Accordion'
 
+{/* 
+  Citation for following code:
+  Date: 10/12/2022
+
+  Title: "Accordion"
+  Source URL: https://react-bootstrap.github.io/components/accordion/
+
+  Title: "Grid system"
+  Source URL: https://react-bootstrap.github.io/layout/grid/
+*/}
+
 function FAQsPage() {
   return (
     <Container fluid id='faq'>
