@@ -17,9 +17,9 @@ function Map() {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
       zoom: zoom,
-      attributionControl: true,
-      logoPosition: 'top-left'
+      logoPosition: 'top-left',
     });
+    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')
   });
 
   useEffect(() => {
