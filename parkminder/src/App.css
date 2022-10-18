@@ -68,9 +68,14 @@ h1 {
   padding-right: 100px;
 }
 
+.btn-reminder {
+  background-color: #ce8232;
+}
+
 .map-container {
   height: 650px;
   width: auto;
+  text-align: left;
 }
 
 #faq {

@@ -1,8 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import Reminder from './reminderform';
 
 {/* 
-  Citation for following code:
+  Citation for Mapbox Code
   Date: 10/16/2022
 
   Title: "Use Mapbox GL JS in React app"
@@ -19,6 +22,12 @@ import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loade
 
   Title: "Mapbox GL Geocoder"
   Source URL: https://www.npmjs.com/package/@mapbox/mapbox-gl-geocoder
+
+  Citation for Modal and Form
+  Date: 10/17/2022
+  
+  Title: "Modals"
+  Source URL: https://react-bootstrap.github.io/components/modal/
 */}
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxtb250ZXoiLCJhIjoiY2w5OG9sYmNrMDdzZjNwdXB2Ym9tNnlsaSJ9.7qMcqrkDozh6eKMTolbQdg';
@@ -40,6 +49,7 @@ function Map() {
     });
     map.current.addControl(new mapboxgl.GeolocateControl({ positionOptions: {timeout: 1000}}), 'top-left')
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-left')
+    map.current.addControl(new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl}))
   });
 
   useEffect(() => {
