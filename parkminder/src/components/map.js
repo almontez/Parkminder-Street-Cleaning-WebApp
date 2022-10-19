@@ -47,7 +47,7 @@ function Map() {
       center: [lng, lat],
       zoom: zoom,
     });
-    map.current.addControl(new mapboxgl.GeolocateControl({ positionOptions: {timeout: 1000}}), 'top-left')
+    map.current.addControl(new mapboxgl.GeolocateControl(), 'top-left')
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-left')
     map.current.addControl(new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl}))
   });
