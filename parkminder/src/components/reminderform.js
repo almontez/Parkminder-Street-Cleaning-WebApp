@@ -12,10 +12,25 @@ import Modal from 'react-bootstrap/Modal';
 */}
 
 function Reminder() {
+  // states for modals: show and hide modal
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // states for form: email and schedule
+  const [email, setEmail] = useState('');
+  const [schedule, setSchedule] = useState('');
+
+  const newReminderEvent = (event) => {
+    event.preventDefault()
+    const newReminder = { email, schedule };
+
+    // Debug Code 
+    console.log(`Create new reminder: ${JSON.stringify(newReminder)}`)
+
+    // Close Form Modal
+    setShow(false);
+  }
 
   return (
     <>
@@ -32,8 +47,11 @@ function Reminder() {
             <Form.Group className="mb-3" controlId="reminderForm">
               <Form.Label>Email address</Form.Label>
               <Form.Control
+                required
                 type="email"
                 placeholder="name@example.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
                 autoFocus
               />
             </Form.Group>
@@ -42,7 +60,12 @@ function Reminder() {
               controlId="reminderForm"
             >
               <Form.Label>Street Cleaning Schedule</Form.Label>
-              <Form.Control as="input" />
+              <Form.Control
+                required
+                type='input'
+                value={schedule}
+                onChange={e => setSchedule(e.target.value)}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -50,7 +73,7 @@ function Reminder() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={newReminderEvent}>
             Save Reminder
           </Button>
         </Modal.Footer>
