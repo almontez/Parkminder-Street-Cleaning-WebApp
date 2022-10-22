@@ -27,7 +27,12 @@ function Reminder() {
 
     // Debug Code 
     console.log(`Create new reminder: ${JSON.stringify(newReminder)}`)
+    alert(`Create new reminder: ${JSON.stringify(newReminder)}`);
 
+    // Clear form
+    setEmail('')
+    setSchedule('')
+    
     // Close Form Modal
     setShow(false);
   }
@@ -74,7 +79,7 @@ function Reminder() {
             Close
           </Button>
           <Button variant="primary" onClick={newReminderEvent}>
-            Save Reminder
+            Save
           </Button>
         </Modal.Footer>
       </Modal>
