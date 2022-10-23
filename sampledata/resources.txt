@@ -1,0 +1,41 @@
+Hi Lauren!
+
+Thank you for working with me this term. I'm excited to be working with you.
+This folder will hold the sample data for the email microservice. 
+
+The microservice should send an email reminder to the user. 
+
+The first email should be a confirmation email. 
+It should be sent within minutes of the user creating the reminder.
+It should include the following:
+    - Some text explaining the purpose of the email
+    - A link back to the web application
+    - Some sign off (optional)
+
+The second email should be the actual reminder email. 
+It should be sent 30 minutes before the necessary move time.
+It should include: 
+    - Some text explaining the purpose of the email
+    - A link back to the web application
+    - Some sign off (optional)
+
+The data for the reminder comes from this site: https://data.sfgov.org/City-Infrastructure/Street-Sweeping-Schedule/yhqp-riqs
+
+The data will be sent as a JSON. The JSON fields are "email", "days", "start_hr", "end_hr". 
+These fields correspond to email from the web app and FullName, FromHour, and ToHour from the data.sfgov.org site.
+FromHour and ToHour are in 24 hour format (site). However, "start_hr" and "end_hr" are in 12-hr format (app form).
+Sample data can be found in the sampledata directory (i.e. this directory). Use this data to test your microservice.
+
+The communication pipe will likely be a REST/RESTful API.
+
+All code should be housed in the CS_361_FA2022_TermProject Repository. 
+You can create your own folder to house your code in the repository. 
+
+You can clone or fork the repository. When you need to merge in code, you can submit a pull request. 
+Repo URL: https://github.com/almontez/CS_361_FA2022_TermProject
+
+Pull Requests Resources: 
+https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+
+If you have any questions, please feel free to reach out to me on Teams, emails, etc. 

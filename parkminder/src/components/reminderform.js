@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 {/* 
   Citation for Modal and Form
@@ -19,19 +21,23 @@ function Reminder() {
 
   // states for form: email and schedule
   const [email, setEmail] = useState('');
-  const [schedule, setSchedule] = useState('');
+  const [days, setDays] = useState('');
+  const [start_hr, setStartHr] = useState('');
+  const [end_hr, setEndHr] = useState('');
 
   const newReminderEvent = (event) => {
     event.preventDefault()
-    const newReminder = { email, schedule };
+    const newReminder = { email, days, start_hr, end_hr };
 
     // Debug Code 
     console.log(`Create new reminder: ${JSON.stringify(newReminder)}`)
     alert(`Create new reminder: ${JSON.stringify(newReminder)}`);
 
     // Clear form
-    setEmail('')
-    setSchedule('')
+    setEmail('');
+    setDays('');
+    setStartHr('');
+    setEndHr('');
     
     // Close Form Modal
     setShow(false);
@@ -60,17 +66,36 @@ function Reminder() {
                 autoFocus
               />
             </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="reminderForm"
-            >
-              <Form.Label>Street Cleaning Schedule</Form.Label>
-              <Form.Control
-                required
-                type='input'
-                value={schedule}
-                onChange={e => setSchedule(e.target.value)}
-              />
+            <Form.Group className="mb-3" controlId="reminderForm">
+              <Row>
+                <Col>
+                  <Form.Label>Cleaning Days</Form.Label>
+                  <Form.Control
+                    required
+                    type='text'
+                    value={days}
+                    onChange={e => setDays(e.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <Form.Label>Start Time</Form.Label>
+                    <Form.Control
+                      required
+                      type='text'
+                      value={start_hr}
+                      onChange={e => setStartHr(e.target.value)}
+                    />
+                </Col>
+                <Col>
+                  <Form.Label>End Time</Form.Label>
+                    <Form.Control
+                      required
+                      type='text'
+                      value={end_hr}
+                      onChange={e => setEndHr(e.target.value)}
+                    />
+                </Col>
+              </Row>
             </Form.Group>
           </Form>
         </Modal.Body>
