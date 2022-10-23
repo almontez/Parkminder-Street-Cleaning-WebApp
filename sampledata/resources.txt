@@ -14,6 +14,7 @@ It should include the following:
 
 The second email should be the actual reminder email. 
 ***It should be sent at 11:00 AM the day before the necessary move time.
+If the user creates a reminder after 11:00 AM of the day before, immediately send reminder.
 It should include: 
     - Some text explaining the purpose of the email
     - A link back to the web application
@@ -21,14 +22,20 @@ It should include:
 
 *** Note: This is a change from our initial discussion. Some of the cleaning times
 are quite early like 12:00 AM or 2:00 AM. As such, a generalized reminder at 11:00 AM 
-the day before sounds like a more reasonable reminder. Open to suggestions for timing.
+the day before sounds like a more reasonable reminder. Open to suggestions.
 
 The data for the reminder comes from this site: https://data.sfgov.org/City-Infrastructure/Street-Sweeping-Schedule/yhqp-riqs
 
-The data will be sent as a JSON. The JSON fields are "email", "days", "start_hr", "end_hr". 
-These fields correspond to email from the web app and FullName, FromHour, and ToHour from the data.sfgov.org site.
-FromHour and ToHour are in 24 hour format (site). However, "start_hr" and "end_hr" are in 12-hr format (app form).
+The data will be sent as a JSON. The JSON fields are "date", "time", "email", "days", "start_hr", "end_hr". 
+    - date: date reminder created               [format: YYYY-MM-DD]
+    - time: time reminder created               [format: 24-hr]
+    - email: user email                         [format: email]
+    - days: cleaning days                       [format: string]
+    - start_hr: start time of street cleaning   [format: string, 12-hr]
+    - end_hr: end time of street cleaning       [format: string, 12-hr]
+
 Sample data can be found in the sampledata directory (i.e. this directory). Use this data to test your microservice.
+** Note: HOLIDAY means every day MON-SUN
 
 The communication pipe will likely be a REST/RESTful API.
 

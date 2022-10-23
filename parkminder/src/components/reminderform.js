@@ -20,20 +20,24 @@ function Reminder() {
   const handleShow = () => setShow(true);
 
   // states for form: email and schedule
-  const [email, setEmail] = useState('');
-  const [days, setDays] = useState('');
-  const [start_hr, setStartHr] = useState('');
-  const [end_hr, setEndHr] = useState('');
+  const [date, setDate] = useState('')            // date reminder created 
+  const [time, setTime] = useState('');           // time reminder created
+  const [email, setEmail] = useState('');         // email of user
+  const [days, setDays] = useState('');           // cleaning days
+  const [start_hr, setStartHr] = useState('');    // start time of sweeper schedule
+  const [end_hr, setEndHr] = useState('');        // end time of sweeper schedule
 
   const newReminderEvent = (event) => {
     event.preventDefault()
-    const newReminder = { email, days, start_hr, end_hr };
+    const newReminder = { date, time, email, days, start_hr, end_hr };
 
     // Debug Code 
     console.log(`Create new reminder: ${JSON.stringify(newReminder)}`)
     alert(`Create new reminder: ${JSON.stringify(newReminder)}`);
 
     // Clear form
+    setTime('');
+    setDate('');
     setEmail('');
     setDays('');
     setStartHr('');
@@ -56,6 +60,32 @@ function Reminder() {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="reminderForm">
+              <Row>
+                <Col>
+                <Form.Label>Today's Date</Form.Label>
+                <Form.Control
+                  required
+                  type="date"
+                  placeholder="name@example.com"
+                  value={date}
+                  onChange={e => setDate(e.target.value)}
+                  autoFocus
+                />
+                </Col>
+                <Col>
+                  <Form.Label>Current Time</Form.Label>
+                  <Form.Control
+                    required
+                    type="Time"
+                    placeholder="name@example.com"
+                    value={time}
+                    onChange={e => setTime(e.target.value)}
+                    autoFocus
+                  />
+                </Col>
+              </Row>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="reminderForm">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 required
@@ -67,16 +97,16 @@ function Reminder() {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="reminderForm">
-              <Row>
-                <Col>
-                  <Form.Label>Cleaning Days</Form.Label>
+            <Form.Label>Cleaning Days</Form.Label>
                   <Form.Control
                     required
                     type='text'
                     value={days}
                     onChange={e => setDays(e.target.value)}
                   />
-                </Col>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="reminderForm">
+              <Row>
                 <Col>
                   <Form.Label>Start Time</Form.Label>
                     <Form.Control
