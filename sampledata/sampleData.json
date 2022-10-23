@@ -63,10 +63,10 @@
     "end_hr": "9:00 AM"
 },
 {
-	"date": "2022-10-19",
-	"time": "23:17",
-	"email": "test@test.com",
-	"days": "Monday",
-	"start_hr": "1:00 PM",
-	"end_hr": "3:00 PM"
+    "date": "2022-10-19",
+    "time": "23:17",
+    "email": "test@test.com",
+    "days": "Monday",
+    "start_hr": "1:00 PM",
+    "end_hr": "3:00 PM"
 }]
