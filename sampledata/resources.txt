@@ -13,11 +13,15 @@ It should include the following:
     - Some sign off (optional)
 
 The second email should be the actual reminder email. 
-It should be sent 30 minutes before the necessary move time.
+***It should be sent at 11:00 AM the day before the necessary move time.
 It should include: 
     - Some text explaining the purpose of the email
     - A link back to the web application
     - Some sign off (optional)
+
+*** Note: This is a change from our initial discussion. Some of the cleaning times
+are quite early like 12:00 AM or 2:00 AM. As such, a generalized reminder at 11:00 AM 
+the day before sounds like a more reasonable reminder. Open to suggestions for timing.
 
 The data for the reminder comes from this site: https://data.sfgov.org/City-Infrastructure/Street-Sweeping-Schedule/yhqp-riqs
 
