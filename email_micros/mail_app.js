@@ -37,6 +37,7 @@ const transporter = nodemailer.createTransport({
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 const msg = {
+  template_id: 'd-2a239b889605432e810f1ad55467f1ef',
   to: 'grahaml@oregonstate.edu', // Change to your recipient
   from: 'ParkminderSF@gmail.com', // Change to your verified sender
   subject: 'Sending with SendGrid is Fun!!!',
@@ -52,4 +53,3 @@ sgMail
     console.error(error)
   })
 
-  
