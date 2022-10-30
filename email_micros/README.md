@@ -49,7 +49,7 @@ This is a file used for testing purposes and contains data in the format it shou
 ### test.js
 This file was built so that an example request could be viewed and the use of the microservice could be easily demonstrated. It is essentially a substitute for the back-end of the application which would be communicating with the email job scheduling microservice. 
 
-A file which is calling this microservice may use request, [an npm package](https://www.npmjs.com/package/request), which can be installed using the command `npm i request`. 
+A file which is calling this microservice may use request, [a node package](https://www.npmjs.com/package/request), which can be installed using the command `npm i request`. 
 
 The file serves as an example call to the microservice. 
 
