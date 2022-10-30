@@ -87,3 +87,4 @@ View the request body, response body, etc. in the console on Postman. The respon
 
 ## UML Sequence Diagram
 
+![UML sequence diagram](https://user-images.githubusercontent.com/63523604/198895464-ba5a6281-2b1a-4190-8daa-aae5736d142e.png)
