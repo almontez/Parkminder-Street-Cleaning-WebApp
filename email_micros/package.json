@@ -1,0 +1,32 @@
+{
+  "name": "mail_app",
+  "version": "1.0.0",
+  "description": "Repository for CS 361 : Software Engineering I Term Project. Includes code for individual project and microservice.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node_modules/.bin/nodemon -e js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lagraham337/CS_361_FA2022_TermProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lagraham337/CS_361_FA2022_TermProject/issues"
+  },
+  "homepage": "https://github.com/lagraham337/CS_361_FA2022_TermProject#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.2",
+    "node-schedule": "^2.1.0",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "request": "^2.88.2"
+  }
+}
