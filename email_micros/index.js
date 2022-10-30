@@ -10,9 +10,8 @@ app.use(express.json())
 
 app.post('/api/send/users', async function(req, res) {
     const users = req.body;
-    console.log(users)
 
-    await users.forEach(async(user_data) => {
+    await users.forEach(async(user_data) => { // send multiple jobs
       schedule.scheduleJob(user_data.date, async() => {
         const sgMail = require('@sendgrid/mail')
         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
@@ -25,23 +24,15 @@ app.post('/api/send/users', async function(req, res) {
             html: '<strong>and easy to do anywhere, even with Node.js</strong>',
         }
         try { 
-            const something = await sgMail.send(msg)
-            .then(() => {
-                console.log('Email sent')
-        })
+            await sgMail.send(msg)
+            console.log(`An email was sent to ${user_data["name"]}`)
         } catch(e) {
           console.log(e)
         }
       })
     })
-    res.end('mailed');
+    res.end('Notifications scheduled.');
 });
 
 const server = app.listen(3000);
 
-
-
-// First route
-//app.get('/', (req, res) => {
-//    res.json({ message: 'Hello world' })
-//})

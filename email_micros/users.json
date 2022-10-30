@@ -1,19 +1,19 @@
 [
     {  "id" : 1,
-       "name" : "mahesh",
+       "name" : "Lauren",
        "email" : "grahaml@oregonstate.edu",
        "date" : "2022-10-29 16:14:59"
     },
     {   
         "id" : 2,
-        "name" : "susy",
-        "email" : "lagraham337@gmail.com",
+        "name" : "Susy",
+        "email" : "test@test.com",
         "date" : "2022-10-29 16:14:59"
     },  
     {   
         "id" : 3,
-        "name" : "tim",
-        "email" : "laurengrahamslp@gmail.com",
+        "name" : "Tim",
+        "email" : "test@test.com",
         "date" : "2022-10-29 16:14:59"
     }
 ]
