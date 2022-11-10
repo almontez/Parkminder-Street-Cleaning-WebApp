@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import * as reformatting from '../utils/reformating.js'
 
 {/* 
   Citation for Modal and Form
@@ -19,29 +20,40 @@ function Reminder() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // states for form: email and schedule
-  const [date, setDate] = useState('')            // date reminder created 
-  const [time, setTime] = useState('');           // time reminder created
-  const [email, setEmail] = useState('');         // email of user
-  const [days, setDays] = useState('');           // cleaning days
-  const [start_hr, setStartHr] = useState('');    // start time of sweeper schedule
-  const [end_hr, setEndHr] = useState('');        // end time of sweeper schedule
+  // states for form
+  const [fname, setFName] = useState('');               // first name
+  const [lname, setLName] = useState('');               // last name
+  const [email, setEmail] = useState('');               // email of user
+  const [cleandays, setCleanDays] = useState('');       // cleaning days
+  const [cleantimes, setCleanTime] = useState('');      // cleaning times
+  const [street, setStreet] = useState('');             // parked street
+  const [remindDate, setRemindDate] = useState('');     // date of reminder
+  const [remindTime, setRemindTime] = useState('');     // time reminder sent
 
-  const newReminderEvent = (event) => {
+
+  const newReminderEvent = async (event) => {
     event.preventDefault()
-    const newReminder = { date, time, email, days, start_hr, end_hr };
+
+    // Reformat data to meet email_micros requirements
+    const name = await reformatting.reformatName(fname, lname);
+    const date = await reformatting.reformatDate(remindDate, remindTime);
+
+    // create 
+    const newReminder = {name, email, date}
 
     // Debug Code 
     console.log(`Create new reminder: ${JSON.stringify(newReminder)}`)
     alert(`Create new reminder: ${JSON.stringify(newReminder)}`);
 
     // Clear form
-    setTime('');
-    setDate('');
-    setEmail('');
-    setDays('');
-    setStartHr('');
-    setEndHr('');
+    setFName('')
+    setLName('')
+    setEmail('')
+    setCleanDays('')
+    setCleanTime('')
+    setStreet('')
+    setRemindDate('')
+    setRemindTime('')
     
     // Close Form Modal
     setShow(false);
@@ -53,40 +65,109 @@ function Reminder() {
         Create Reminder
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal size='lg' show={show} onHide={handleClose}>
+
         <Modal.Header closeButton>
           <Modal.Title>Create Street Cleaning Reminder</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="reminderForm">
-              <Row>
-                <Col>
-                <Form.Label>Today's Date</Form.Label>
+            <Form.Label>Cleaning Schedule (Days/Time/Street)</Form.Label>
+            <Row>
+              <Col>
+              <Form.Group className="mb-3" controlId="reminderForm">
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder='Cleaning Days'
+                    value={cleandays}
+                    onChange={e => setCleanDays(e.target.value)}
+                  />
+              </Form.Group>
+              </Col>
+              <Col>
+              <Form.Group className="mb-3" controlId="reminderForm">
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder='Cleaning Time Block'
+                    value={cleantimes}
+                    onChange={e => setCleanTime(e.target.value)}
+                  />
+              </Form.Group>
+              </Col>
+              <Col>
+              <Form.Group className="mb-3" controlId="reminderForm">
+                  <Form.Control
+                    required
+                    type='text'
+                    placeholder='Street'
+                    value={street}
+                    onChange={e => setStreet(e.target.value)}
+                  />
+              </Form.Group>
+              </Col>
+            </Row>
+            <br></br>
+            <Form.Label>What is your first and last name?</Form.Label>
+            <Row>
+              <Col>
+              <Form.Group className="mb-3" controlId="reminderForm">
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder='First Name'
+                  value={fname}
+                  onChange={e => setFName(e.target.value)}
+                  autoFocus
+                />
+              </Form.Group>
+              </Col>
+              <Col>
+              <Form.Group className="mb-3" controlId="reminderForm">
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder='Last Name'
+                    value={lname}
+                    onChange={e => setLName(e.target.value)}
+                    autoFocus
+                  />
+              </Form.Group>
+              </Col>
+            </Row>
+            <br></br>
+            <Form.Label id="reminder-question">When would you like to be reminded to move your vehicle?
+              Plese enter a date and time below.
+            </Form.Label>
+            <Row>
+              <Col>
+              <Form.Group className="mb-3" controlId="reminderForm">
                 <Form.Control
                   required
                   type="date"
-                  placeholder="name@example.com"
-                  value={date}
-                  onChange={e => setDate(e.target.value)}
+                  value={remindDate}
+                  onChange={e => setRemindDate(e.target.value)}
                   autoFocus
                 />
-                </Col>
-                <Col>
-                  <Form.Label>Current Time</Form.Label>
+              </Form.Group>
+              </Col>
+              <Col>
+              <Form.Group className="mb-3" controlId="reminderForm">
                   <Form.Control
                     required
-                    type="Time"
-                    placeholder="name@example.com"
-                    value={time}
-                    onChange={e => setTime(e.target.value)}
+                    type="time"
+                    value={remindTime}
+                    onChange={e => setRemindTime(e.target.value)}
                     autoFocus
                   />
-                </Col>
-              </Row>
-            </Form.Group>
+              </Form.Group>
+              </Col>
+            </Row>
+            <br></br>
+            <Form.Label>Where would you like your reminder to be sent? Please enter a valid email address</Form.Label>
             <Form.Group className="mb-3" controlId="reminderForm">
-              <Form.Label>Email address</Form.Label>
               <Form.Control
                 required
                 type="email"
@@ -95,37 +176,6 @@ function Reminder() {
                 onChange={e => setEmail(e.target.value)}
                 autoFocus
               />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="reminderForm">
-            <Form.Label>Cleaning Days</Form.Label>
-                  <Form.Control
-                    required
-                    type='text'
-                    value={days}
-                    onChange={e => setDays(e.target.value)}
-                  />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="reminderForm">
-              <Row>
-                <Col>
-                  <Form.Label>Start Time</Form.Label>
-                    <Form.Control
-                      required
-                      type='text'
-                      value={start_hr}
-                      onChange={e => setStartHr(e.target.value)}
-                    />
-                </Col>
-                <Col>
-                  <Form.Label>End Time</Form.Label>
-                    <Form.Control
-                      required
-                      type='text'
-                      value={end_hr}
-                      onChange={e => setEndHr(e.target.value)}
-                    />
-                </Col>
-              </Row>
             </Form.Group>
           </Form>
         </Modal.Body>
