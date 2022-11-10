@@ -15,4 +15,4 @@ async function reformatName(first_name, last_name) {
     return full_name;
 }
 
-export { reformatDate, reformatName}
+export { reformatDate, reformatName } 

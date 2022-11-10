@@ -38,7 +38,7 @@ function Reminder() {
     const name = await reformatting.reformatName(fname, lname);
     const date = await reformatting.reformatDate(remindDate, remindTime);
 
-    // create 
+    // Make post request to parkminder web server
     const newReminder = {name, email, date}
 
     // Debug Code 
