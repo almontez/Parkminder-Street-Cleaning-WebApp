@@ -3,7 +3,8 @@ const express = require('express')
 const schedule = require('node-schedule');
 
 // App
-const app = express()
+const app  = express()
+const PORT = 3356
 
 app.use(express.json())
 
@@ -38,5 +39,6 @@ app.post('/api/send/users', async function(req, res) {
   }
 });
 
-const server = app.listen(3000);
-
+app.listen(PORT, () => {
+  console.log("Email server listening on port " + PORT)
+});
