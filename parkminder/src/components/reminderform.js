@@ -40,7 +40,7 @@ function Reminder() {
 
     // Make post request to parkminder web server
     const newReminder = {name, email, date}
-    const response = fetch('http://localhost:6958/email-micros', {
+    const response = await fetch('http://localhost:6958/email-micros', {
       method: 'POST',
       body: JSON.stringify(newReminder),
       headers: {
