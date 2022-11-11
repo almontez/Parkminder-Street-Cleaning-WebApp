@@ -40,22 +40,39 @@ function Reminder() {
 
     // Make post request to parkminder web server
     const newReminder = {name, email, date}
+    const response = fetch('http://localhost:6958/email-micros', {
+      method: 'POST',
+      body: JSON.stringify(newReminder),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
 
-    // Debug Code 
-    console.log(`Create new reminder: ${JSON.stringify(newReminder)}`)
-    alert(`Create new reminder: ${JSON.stringify(newReminder)}`);
+    if (response.status === 200) {
+      alert("Sucessfully Created Reminder")
+    } else {
+      alert(response.status + " - Unable to Create Reminder")
+    }
 
     // Clear form
-    setFName('')
-    setLName('')
-    setEmail('')
-    setCleanDays('')
-    setCleanTime('')
-    setStreet('')
-    setRemindDate('')
-    setRemindTime('')
+    clearForm()
     
     // Close Form Modal
+    closeModal()
+  }
+
+  function clearForm() {
+    setFName('');
+    setLName('');
+    setEmail('');
+    setCleanDays('');
+    setCleanTime('');
+    setStreet('');
+    setRemindDate('');
+    setRemindTime('');
+  }
+
+  function closeModal() {
     setShow(false);
   }
 
