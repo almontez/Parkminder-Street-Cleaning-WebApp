@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import * as reformatting from '../utils/reformating.js'
+import { createReminder } from '../utils/createreminder.js';
 
 {/* 
   Citation for Modal and Form
@@ -31,37 +31,16 @@ function Reminder() {
   const [remindTime, setRemindTime] = useState('');     // time reminder sent
 
 
-  const newReminderEvent = async (event) => {
+  const handleSave = async (event) => {
     event.preventDefault()
 
-    // Reformat data to meet email_micros requirements
-    const name = await reformatting.reformatName(fname, lname);
-    const date = await reformatting.reformatDate(remindDate, remindTime);
+    // Close Form Modal
+    setShow(false);
 
-    // Make post request to parkminder web server
-    const newReminder = {name, email, date}
-    const response = await fetch('http://localhost:6958/email-micros', {
-      method: 'POST',
-      body: JSON.stringify(newReminder),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-
-    if (response.status === 200) {
-      alert("Sucessfully Created Reminder")
-    } else {
-      alert(response.status + " - Unable to Create Reminder")
-    }
+    // Call Function to Create and Send Reminder
+    createReminder(fname, lname, remindDate, remindTime, email);
 
     // Clear form
-    clearForm()
-    
-    // Close Form Modal
-    closeModal()
-  }
-
-  function clearForm() {
     setFName('');
     setLName('');
     setEmail('');
@@ -70,10 +49,6 @@ function Reminder() {
     setStreet('');
     setRemindDate('');
     setRemindTime('');
-  }
-
-  function closeModal() {
-    setShow(false);
   }
 
   return (
@@ -200,7 +175,7 @@ function Reminder() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={newReminderEvent}>
+          <Button variant="primary" onClick={handleSave}>
             Save
           </Button>
         </Modal.Footer>
