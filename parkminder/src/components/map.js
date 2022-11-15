@@ -43,13 +43,13 @@ function Map() {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/almontez/clailete0000215ppjsym9k8s',
       center: [lng, lat],
       zoom: zoom,
     });
-    map.current.addControl(new mapboxgl.GeolocateControl(), 'top-left')
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-left')
-    map.current.addControl(new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl}))
+    map.current.addControl(new mapboxgl.GeolocateControl(), 'top-right')
+    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')
+    map.current.addControl(new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl}), 'top-left')
   });
 
   useEffect(() => {
