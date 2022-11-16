@@ -1,12 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import Reminder from './reminderform';
 
+// eslint-disable-next-line 
 {/* 
   Citation for Mapbox Code
-  Date: 10/16/2022
+  Date: 10/16/2022 and 11/15/2022
 
   Title: "Use Mapbox GL JS in React app"
   Source URL: https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-react/
@@ -23,6 +23,9 @@ import Reminder from './reminderform';
   Title: "Mapbox GL Geocoder"
   Source URL: https://www.npmjs.com/package/@mapbox/mapbox-gl-geocoder
 
+  Title: "Add points to a web map, part 2: create a map style"
+  Source URL: https://docs.mapbox.com/help/tutorials/add-points-pt-2/
+
   Citation for Modal and Form
   Date: 10/17/2022
   
@@ -35,37 +38,46 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWxtb250ZXoiLCJhIjoiY2w5OG9sYmNrMDdzZjNwdXB2Y
 function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-122.4378588051518);
-  const [lat, setLat] = useState(37.753502532309014);
-  const [zoom, setZoom] = useState(11.5);
 
+  // initialize base map
   useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/almontez/clailete0000215ppjsym9k8s',
-      center: [lng, lat],
-      zoom: zoom,
+      center: [-122.4378588051518, 37.753502532309014],
+      zoom: 11.5,
     });
     map.current.addControl(new mapboxgl.GeolocateControl(), 'top-right')
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')
     map.current.addControl(new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl}), 'top-left')
   });
 
+  // generate pop-up with street cleaning information and reminder
   useEffect(() => {
-    if (!map.current) return; // wait for map to initialize
-    map.current.on('move', () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
-      setZoom(map.current.getZoom().toFixed(2));
+    map.current.on('click', (e) => {
+      const features = map.current.queryRenderedFeatures(e.point, {
+        layers: ['sf-street-clean-schedule']
+      });
+
+      console.log(features)
+
+      const feature = features[0]
+
+      const popup = new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(`<h3>${feature.properties.cnnrightleft}</h3>`);
+      
+      const popups = document.getElementsByClassName('mapboxgl-popup');
+      if (popups.length) {
+        popups[0].remove()
+      } 
+      popup.addTo(map.current);
     });
-  });
+  })
 
   return (
     <div>
-      <div className="sidebar">
-        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-      </div>
       <div ref={mapContainer} className="map-container" />
     </div>
   );
