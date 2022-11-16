@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import { cleanData } from '../utils/cleanreminddata';
 
 // eslint-disable-next-line 
 {/* 
@@ -48,26 +49,31 @@ function Map() {
       center: [-122.4378588051518, 37.753502532309014],
       zoom: 11.5,
     });
-    map.current.addControl(new mapboxgl.GeolocateControl(), 'top-right')
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')
-    map.current.addControl(new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl}), 'top-left')
+    map.current.addControl(new mapboxgl.GeolocateControl(), 'top-right')    // find my location
+    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')   // zoom 
+    map.current.addControl(new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl}), 'top-left') // search bar
   });
 
-  // generate pop-up with street cleaning information and reminder
+  // generate popup with map data and reminder
   useEffect(() => {
     map.current.on('click', (e) => {
-      const features = map.current.queryRenderedFeatures(e.point, {
+      // grab map data
+      const data = map.current.queryRenderedFeatures(e.point, {
         layers: ['sf-street-clean-schedule']
       });
 
-      console.log(features)
+      console.log("This is uncleaned data")
+      console.log(data)
+      const feature = cleanData(data)
+      console.log("This is feature in main")
+      console.log(feature)
 
-      const feature = features[0]
-
+      // create pop up
       const popup = new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML(`<h3>${feature.properties.cnnrightleft}</h3>`);
+        .setHTML(<h3>Title</h3>);
       
+      // close pop up
       const popups = document.getElementsByClassName('mapboxgl-popup');
       if (popups.length) {
         popups[0].remove()
