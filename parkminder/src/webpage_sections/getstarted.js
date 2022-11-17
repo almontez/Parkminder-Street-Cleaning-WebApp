@@ -5,16 +5,6 @@ import Card from 'react-bootstrap/Card';
 import Map from '../components/map';
 import Reminder from '../components/reminderform';
 
-{/* 
-  Citation for following code:
-  Date: 10/12/2022
-
-  Title: "Cards"
-  Source URL: https://react-bootstrap.github.io/components/cards/
-
-  Title: "Grid system"
-  Source URL: https://react-bootstrap.github.io/layout/grid/
-*/}
 
 function GetStartedPage() {
   return (
@@ -38,3 +28,14 @@ function GetStartedPage() {
 }
 
 export default GetStartedPage;
+
+/* 
+  Citation for GetStartedPage
+  Date: 10/12/2022
+
+  Title: "Cards"
+  Source URL: https://react-bootstrap.github.io/components/cards/
+
+  Title: "Grid system"
+  Source URL: https://react-bootstrap.github.io/layout/grid/
+*/

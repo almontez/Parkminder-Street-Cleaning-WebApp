@@ -3,16 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-{/* 
-  Citation for following code:
-  Date: 10/12/2022
-
-  Title: "Cards"
-  Source URL: https://react-bootstrap.github.io/components/cards/
-
-  Title: "Grid system"
-  Source URL: https://react-bootstrap.github.io/layout/grid/
-*/}
 
 function AboutPage() {
   return (
@@ -56,3 +46,14 @@ function AboutPage() {
 }
 
 export default AboutPage;
+
+/* 
+  Citation AboutPage
+  Date: 10/12/2022
+
+  Title: "Cards"
+  Source URL: https://react-bootstrap.github.io/components/cards/
+
+  Title: "Grid system"
+  Source URL: https://react-bootstrap.github.io/layout/grid/
+*/

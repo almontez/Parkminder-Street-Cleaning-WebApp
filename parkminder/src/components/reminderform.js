@@ -6,14 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { createReminder } from '../utils/createreminder.js';
 
-// eslint-disable-next-line 
-{/* 
-  Citation for Modal and Form
-  Date: 10/17/2022
-  
-  Title: "Modals"
-  Source URL: https://react-bootstrap.github.io/components/modal/
-*/}
 
 function Reminder() {
   // states for modals: show and hide modal
@@ -59,7 +51,6 @@ function Reminder() {
       </Button>
 
       <Modal size='lg' show={show} onHide={handleClose}>
-
         <Modal.Header closeButton>
           <Modal.Title>Create Street Cleaning Reminder</Modal.Title>
         </Modal.Header>
@@ -186,3 +177,11 @@ function Reminder() {
 }
 
 export default Reminder;
+
+/* 
+  Citation for Modal and Form
+  Date: 10/17/2022
+  
+  Title: "Modals"
+  Source URL: https://react-bootstrap.github.io/components/modal/
+*/

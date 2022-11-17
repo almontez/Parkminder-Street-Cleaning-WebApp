@@ -3,13 +3,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../images/logo6.png'
 
-{/* 
-  Citation for following code:
-  Date: 10/11/2022
-
-  Title: "Navbars"
-  Source URL: https://react-bootstrap.github.io/components/navbar/
-*/}
 
 function NavigationBar() {
   return (
@@ -35,3 +28,11 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
+
+/* 
+  Citation for NavigationBar
+  Date: 10/11/2022
+
+  Title: "Navbars"
+  Source URL: https://react-bootstrap.github.io/components/navbar/
+*/

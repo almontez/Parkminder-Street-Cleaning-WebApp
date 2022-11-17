@@ -1,7 +1,8 @@
-{/* This file is used for reformatting data. 
-    Reformatting may be necessary to make the data more user readable 
-    or to meet the formatting requirements of the email microservice
-*/}
+/* 
+This file is used for reformatting data. 
+Reformatting may be necessary to make the data more user readable 
+or to meet the formatting requirements of the email microservice
+*/
 
 async function reformatDate(date, time) {
     const full_time = time + ":00"
