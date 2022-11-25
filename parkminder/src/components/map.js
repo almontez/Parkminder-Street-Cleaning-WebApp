@@ -1,8 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { cleanData } from '../utils/cleandata';
+import Reminder from './reminderform'
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxtb250ZXoiLCJhIjoiY2w5OG9sYmNrMDdzZjNwdXB2Ym9tNnlsaSJ9.7qMcqrkDozh6eKMTolbQdg';
@@ -10,6 +11,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWxtb250ZXoiLCJhIjoiY2w5OG9sYmNrMDdzZjNwdXB2Y
 function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
+
+  const [streetName, setStreetName] = useState('')
+  const [streetLimits, setStreetLimits] = useState('')
+  const [leftSideData, setLeftSideData] = useState('')
+  const [rightSideData, setRightSideData] = useState('')
 
   // initialize base map
   useEffect(() => {
@@ -35,12 +41,17 @@ function Map() {
 
       // clean data and send to pop-up componenets
       const feature = cleanData(data);
-      console.log(feature)
-
-      // create pop up
+      feature.then(data => {
+        console.log(data)
+        setStreetName(data.streetName)
+        setStreetLimits(data.streetLimits)
+        setLeftSideData(data.leftSideData)
+        setRightSideData(data.rightSideData)
+      })
+      
       const popup = new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML(`<h1>Hello World!</h1>`);
+        .setHTML(`Test: ${streetName}`);
       
       // close pop up
       const popups = document.getElementsByClassName('mapboxgl-popup');

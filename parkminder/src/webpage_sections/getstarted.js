@@ -22,6 +22,14 @@ function GetStartedPage() {
                 </Card.Body>
                 </Card>
             </Col>
+            <Col>
+                <Card>
+                <Card.Header><Reminder></Reminder></Card.Header>
+                <Card.Body>
+                    <Reminder></Reminder>
+                </Card.Body>
+                </Card>
+            </Col>
         </Row>
     </Container>
   );
