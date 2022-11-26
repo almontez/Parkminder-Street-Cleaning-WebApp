@@ -16,4 +16,26 @@ async function reformatName(first_name, last_name) {
     return full_name;
 }
 
-export { reformatDate, reformatName } 
+async function reformatCleanTimes(start_time, end_time) {
+    let temp_start_time = parseInt(start_time)
+    let temp_end_time = parseInt(end_time)
+    let start_meridian = 'AM'
+    let end_meridian = 'PM'
+
+    if (temp_start_time === 0) {
+        temp_start_time = 12
+    } else if (temp_start_time > 12) {
+        temp_start_time = start_time - 12
+        start_meridian = 'PM'
+    }
+
+    if (temp_end_time > 12) {
+        temp_end_time = end_time - 12
+        end_meridian = 'PM'
+    }
+
+    const converted_time = temp_start_time + start_meridian + " - " + temp_end_time + end_meridian
+    return converted_time
+}
+
+export { reformatDate, reformatName, reformatCleanTimes } 

@@ -3,8 +3,7 @@ import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loade
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { cleanData } from '../utils/cleandata';
-import Reminder from './reminderform'
-
+import { reformatCleanTimes } from '../utils/reformating'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWxtb250ZXoiLCJhIjoiY2w5OG9sYmNrMDdzZjNwdXB2Ym9tNnlsaSJ9.7qMcqrkDozh6eKMTolbQdg';
 
@@ -14,8 +13,10 @@ function Map() {
 
   const [streetName, setStreetName] = useState('')
   const [streetLimits, setStreetLimits] = useState('')
-  const [leftSideData, setLeftSideData] = useState('')
-  const [rightSideData, setRightSideData] = useState('')
+  const [leftSideCleanDay, setLeftSideCleanDay] = useState('')
+  const [rightSideCleanDay, setRightSideCleanDay] = useState('')
+  const [leftSideTimes, setLeftSideTimes] = useState('')
+  const [rightSideTimes, setRightSideTimes] = useState('')
 
   // initialize base map
   useEffect(() => {
@@ -39,19 +40,49 @@ function Map() {
         layers: ['sf-street-clean-schedule']
       });
 
-      // clean data and send to pop-up componenets
+      // clean data and send to pop-up html
       const feature = cleanData(data);
       feature.then(data => {
-        console.log(data)
-        setStreetName(data.streetName)
-        setStreetLimits(data.streetLimits)
-        setLeftSideData(data.leftSideData)
-        setRightSideData(data.rightSideData)
-      })
-      
+        setStreetName(data.streetName);
+        setStreetLimits(data.streetLimits);
+
+        const leftDaysPromise = Promise.resolve(data.leftSideData.clean_days)
+        leftDaysPromise.then(days => {
+          setLeftSideCleanDay(days)
+        });
+
+        const rightDaysPromise = Promise.resolve(data.rightSideData.clean_days)
+        rightDaysPromise.then(days => {
+          setRightSideCleanDay(days)
+        });
+
+        const left_clean_times = reformatCleanTimes(data.leftSideData.start_time, data.leftSideData.end_time);
+        left_clean_times.then(times => {
+          setLeftSideTimes(times)
+        });
+
+        const right_clean_times = reformatCleanTimes(data.rightSideData.start_time, data.rightSideData.end_time);
+        right_clean_times.then(times => {
+          setRightSideTimes(times)
+        });
+      });
+
+      // create pop up
       const popup = new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML(`Test: ${streetName}`);
+        .setHTML(`<b>Street Name:</b> ${streetName}<br>
+                  <b>Street Boundaries:</b> ${streetLimits}
+                  <br><br>
+                  <b>I parked on the <u>LEFT</u> side of the street.</b>
+                  <ul>
+                  <li>Cleaning Days: ${leftSideCleanDay}</li>
+                  <li>Cleaning Times: ${leftSideTimes}</li>
+                  </ul>
+                  <b>I parked on the <u>RIGHT</u> side of the street.</b>
+                  <ul>
+                  <li>Cleaning Days: ${rightSideCleanDay}</li>
+                  <li>Cleaning Times: ${rightSideTimes}</li>
+                  </ul>`);
       
       // close pop up
       const popups = document.getElementsByClassName('mapboxgl-popup');

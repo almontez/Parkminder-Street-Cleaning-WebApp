@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { createReminder } from '../utils/createreminder.js';
@@ -46,16 +45,6 @@ function Reminder() {
 
   return (
     <>
-      <Button variant='light' size='lg' onClick={handleShow}>
-        Create Reminder
-      </Button>
-
-      <Modal size='lg' show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create Street Cleaning Reminder</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
           <Form>
             <Form.Label>Cleaning Schedule (Days/Time/Street)</Form.Label>
             <Row>
@@ -75,7 +64,7 @@ function Reminder() {
                   <Form.Control
                     required
                     type='text'
-                    placeholder='Cleaning Time Block'
+                    placeholder='Cleaning Time'
                     value={cleantimes}
                     onChange={e => setCleanTime(e.target.value)}
                   />
@@ -86,7 +75,7 @@ function Reminder() {
                   <Form.Control
                     required
                     type='text'
-                    placeholder='Street'
+                    placeholder='Street Name'
                     value={street}
                     onChange={e => setStreet(e.target.value)}
                   />
@@ -162,16 +151,6 @@ function Reminder() {
               />
             </Form.Group>
           </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleSave}>
-            Save
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </>
   );
 }

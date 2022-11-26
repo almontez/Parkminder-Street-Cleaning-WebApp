@@ -66,7 +66,7 @@ async function consolidateDays(arr_data) {
     for (let i=0; i<arrLen; i++) {
         const day = arr_data[i].properties.weekday
 
-        if (day !== 'Holiday') {
+        if (day !== 'Holiday' && !days.includes(day)) {
             days.push(day)
         }
     }
@@ -101,7 +101,7 @@ async function sortByDay(days) {
 
 async function joinDays(result) {
     // Promise Returned
-    return result.join(', ')
+    return result.join(' & ')
 }
 
 

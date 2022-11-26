@@ -73,8 +73,8 @@ h1 {
 }
 
 .map-container {
-  height: 650px;
-  width: auto;
+  height: 525px;
+  width: 825px;
   text-align: left;
 }
 
@@ -92,4 +92,12 @@ h1 {
 
 .faq-qbox {
   padding-bottom: 500px;
+}
+
+#mapUI {
+  height: 600px;
+}
+
+#reminder {
+  height: 600px;
 }

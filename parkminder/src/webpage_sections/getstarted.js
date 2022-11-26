@@ -12,9 +12,9 @@ function GetStartedPage() {
         <Row className='left-align'><h5>Get Started</h5></Row>
         <Row className='left-align'><h1>Set A Reminder</h1></Row>
         <Row>
-            <Col>
-                <Card>
-                <Card.Header><Reminder></Reminder></Card.Header>
+            <Col sm={7}>
+                <Card id='mapUI'>
+                <Card.Header>Search Map</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         <Map></Map>
@@ -22,9 +22,9 @@ function GetStartedPage() {
                 </Card.Body>
                 </Card>
             </Col>
-            <Col>
-                <Card>
-                <Card.Header><Reminder></Reminder></Card.Header>
+            <Col sm={5}>
+                <Card id='reminder'>
+                <Card.Header>Create Reminder</Card.Header>
                 <Card.Body>
                     <Reminder></Reminder>
                 </Card.Body>
