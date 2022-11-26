@@ -113,7 +113,7 @@ h1 {
 #reminderSave {
   padding: 10px;
   margin-top: 20px;
-  width: 34vw;
+  width: 100%;
   background-color: #ce8232;
   border-color: #ce8232;
 }
