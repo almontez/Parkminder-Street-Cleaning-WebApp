@@ -14,7 +14,7 @@ function GetStartedPage() {
         <Row>
             <Col sm={7}>
                 <Card id='mapUI'>
-                <Card.Header>Search Map</Card.Header>
+                <Card.Header id='mapUIHeader'>Search Map</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         <Map></Map>
@@ -24,7 +24,7 @@ function GetStartedPage() {
             </Col>
             <Col sm={5}>
                 <Card id='reminder'>
-                <Card.Header>Create Reminder</Card.Header>
+                <Card.Header id='reminderHeader'>Create Reminder</Card.Header>
                 <Card.Body>
                     <Reminder></Reminder>
                 </Card.Body>

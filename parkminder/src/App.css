@@ -73,8 +73,8 @@ h1 {
 }
 
 .map-container {
-  height: 525px;
-  width: 825px;
+  height: 535px;
+  width: auto;
   text-align: left;
 }
 
@@ -95,9 +95,25 @@ h1 {
 }
 
 #mapUI {
-  height: 600px;
+  height: 625px;
+}
+
+#mapUIHeader {
+  font-size: x-large;
 }
 
 #reminder {
-  height: 600px;
+  height: 625px;
+}
+
+#reminderHeader {
+  font-size: x-large;
+}
+
+#reminderSave {
+  padding: 10px;
+  margin-top: 20px;
+  width: 34vw;
+  background-color: #ce8232;
+  border-color: #ce8232;
 }
