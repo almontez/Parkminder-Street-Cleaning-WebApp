@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Shrikhand');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 
 .App {
   text-align: center;
@@ -116,4 +117,50 @@ h1 {
   width: 100%;
   background-color: #ce8232;
   border-color: #ce8232;
+}
+
+/**
+# Citation for .footer and .bug css
+# Date: 11/25/2022
+# Adapted from Medium: "How to Position a Div Element Over and Relative to Another"
+# Source URL: https://medium.com/programming-essentials/how-to-put-a-div-block-over-another-bae2b4579c8d
+**/
+.footer {
+  position:relative;
+  background-color: #737373;
+  height: 170px;
+}
+
+.bug {
+ position: absolute;
+ top: -8rem;
+ left: 80rem;
+ width: 500px;
+}
+
+#contactInfo {
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-bottom: 0px;
+  font-family: 'Montserrat';
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color:whitesmoke
+}
+
+.footerInfo {
+  text-align: left;
+  padding-left: 30px;
+  font-family: 'Montserrat';
+  font-size: large;
+  color:whitesmoke
+}
+
+.reference {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  text-align: right;
+  padding-right: 30px;
+  color: white
 }

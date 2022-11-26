@@ -10,6 +10,7 @@ import AboutPage from './webpage_sections/about';
 import Spacer from './webpage_sections/spacer';
 import GetStartedPage from './webpage_sections/getstarted';
 import FAQsPage from './webpage_sections/faqs';
+import ContactInfo from './webpage_sections/contactinfo';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Spacer></Spacer>
       <GetStartedPage></GetStartedPage>
       <FAQsPage></FAQsPage>
+      <ContactInfo></ContactInfo>
     </div>
   );
 }
