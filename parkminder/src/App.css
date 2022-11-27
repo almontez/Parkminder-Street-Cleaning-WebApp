@@ -134,7 +134,7 @@ h1 {
 .bug {
  position: absolute;
  top: -8rem;
- left: 80rem;
+ left: 65rem;
  width: 500px;
 }
 
@@ -163,4 +163,19 @@ h1 {
   text-align: right;
   padding-right: 30px;
   color: white
+}
+
+p {
+  text-align: justify;
+  font-size: large;
+}
+
+#instructions {
+  margin-left: 10%;
+  height: 100%;
+}
+
+li {
+  padding: 3px;
+  text-align: left;
 }

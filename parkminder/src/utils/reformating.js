@@ -20,7 +20,7 @@ async function reformatCleanTimes(start_time, end_time) {
     let temp_start_time = parseInt(start_time)
     let temp_end_time = parseInt(end_time)
     let start_meridian = 'AM'
-    let end_meridian = 'PM'
+    let end_meridian = 'AM'
 
     if (temp_start_time === 0) {
         temp_start_time = 12
