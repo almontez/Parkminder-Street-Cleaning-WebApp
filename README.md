@@ -8,7 +8,7 @@ Notable features include -
 - a sticky navbar
 - about the application page with instructions 
 - a searchable map with zoom functionalities 
-- Pop ups that display street cleaning data
+- map pop ups that display street cleaning data
 - a reminder form that connects to the email microservice 
 - and a FAQ section with an accordion component. 
 
