@@ -12,4 +12,7 @@ Notable features include -
 
 Using Parkinder is an easy process. You’ll start by finding the location of where you parked on the map. You’ll then click on the orange line and the cleaning data for that location will appear. If the data doesn’t instantly pop up, you should click the line again. You can then copy the relevant data into the reminder form or type it in as I’m doing here. Once you’re done, it’s as easy as clicking save. There you go! An email reminder is logged using sendgrid and will be sent to the input email at the specified date and time. No more $85 parking tickets. 
 
+
+https://user-images.githubusercontent.com/91339804/204406952-59a252d5-b44f-4a7d-9295-fb4876f2ebef.mp4
+
 This project was developed for CS 361: Software Engineering I
