@@ -1,17 +1,50 @@
+# Parkminder: Street Cleaning Reminder
+
+## Table of Contents
+1. [Description](#Description)
+2. [Video Demo](#Demo)
+3. [Product Spec](#Product-Spec)
+
+## Description
+**Parkmimder: Street Cleaning SF** is a single page web application that lets users create and send reminders to move their car during designated street cleaning times in San Francisco, CA.
+
+### App Evaluation
+- **Category:** Reminder/Productivity
+- **Type:** Web application
+- **Story:** Parkminder is for the busy and forgetful because parking in San Francisco is difficult enough without the fear of being ticketed $85 for forgetting to move a parked vehicle during a street cleaning period. 
+- **Market:** San Francisco residents who own vehicles that must be parked on the street.
+- **Habit:** Parkminder is meant for weekly use after a user has moved their vehicle to a new parking location.
+- **Scope:** Parkminder consists of three pages: About, Get Started, and FAQs. The primary feature of the application is located on the Get Started Page. Users can search an embedded map for street cleaning data. Then use the reminder form to schedule emailed parking reminders. 
+- **Tools & Technologies:** React, Mapbox, React-Bootstrap, DataSF (Socrata), Twilio sendgrid 
+
+## Demo
 https://user-images.githubusercontent.com/91339804/204406952-59a252d5-b44f-4a7d-9295-fb4876f2ebef.mp4
 
-Welcome to Parkmimder. Parkmimder is a single page web application that lets users create and send reminders to move their car during designated street cleaning times in San Francisco, CA. Parkmimder was conceptualize after I received an $85 parking ticket for forgetting to move my parked car during a street cleaning period. 
+## Product Spec
 
-It’s built using React, Mapbox, React-Bootstrap, DataSF, and Twilio sendgrid for the email microservice. 
+### 1. User Stories 
 
-Notable features include -
-- a sticky navbar
-- about the application page with instructions 
-- a searchable map with zoom functionalities 
-- map pop ups that display street cleaning data
-- a reminder form that connects to the email microservice 
-- and a FAQ section with an accordion component. 
+**Required Must-have Stories**
 
-Using Parkinder is an easy process. You’ll start by finding the location of where you parked on the map. You’ll then click on the orange line and the cleaning data for that location will appear. If the data doesn’t instantly pop up, you should click the line again. You can then copy the relevant data into the reminder form or type it in as I’m doing here. Once you’re done, it’s as easy as clicking save. There you go! An email reminder is logged using sendgrid and will be sent to the input email at the specified date and time. No more $85 parking tickets. 
+* User can navigate to different "pages" on the site using a sticky navigation bar
+* Users can search an embedded map for street cleaning information
+* Users can fill out and submit a reminder form to move their vehicle
+* Users will receive an email reminder on  day and time they designated on the reminder form
 
-This project was developed for CS 361: Software Engineering I (Fall 2022)
+
+### 2. Screen Archetypes
+
+* **Homepage:** Welcomes users to the website with a large hero bar including the title of the website. 
+* **About:** Explains the motivations for the application and provides users with instructions for searching the map and creating a reminder
+* **Get Started:** Search map for street cleaning data related to where you parked. Create a reminder to move a parked vehicle on a designated time and day.
+* **FAQ:** Expands user knowledge by providing additional information about street cleaning policy and practices 
+
+### 3. Navigation
+
+**Flow Navigation**
+* Home
+* About
+* Get Started
+   * Map
+   * Reminder Form
+* FAQs
